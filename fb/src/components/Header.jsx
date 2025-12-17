@@ -2,8 +2,8 @@ import {Facebook,Search,Home, Video, Store,Users,LayoutGrid,Plus,MessageCircle,B
 import { useAuthContext } from "../context/AuthProvider";
 
 export default function Header() {
-  const {userDetails} = useAuthContext()
-  console.log(userDetails)
+  const {state} = useAuthContext()
+  console.log(state)
   return (
     <header className="w-full h-14 bg-white shadow flex items-center justify-between px-4">
       

@@ -13,8 +13,8 @@ import { useAuthContext } from "../context/AuthProvider";
 export default function Signup() {
 
 
-const {userDetails,setUserDetails} = useAuthContext()
-console.log(userDetails)
+const {state,dispatch} = useAuthContext()
+// console.log(state)
 
 let navigate = useNavigate()
 
@@ -45,11 +45,16 @@ const days = Array.from({ length: 31 }, (_, i) => i + 1);
 
  function onSubmit(data) {
     localStorage.setItem("currentUser",JSON.stringify(data))
-setUserDetails({
-  firstName:data.firstName,
-  lastName:data.lastName,
-  gender:data.gender,
-  email:data.email,
+// setUserDetails({
+//   firstName:data.firstName,
+//   lastName:data.lastName,
+//   gender:data.gender,
+//   email:data.email,
+// })
+
+dispatch({
+  type:"REGISTER_USER",
+  payload:data
 })
     if(data.email){
       navigate("/home")
