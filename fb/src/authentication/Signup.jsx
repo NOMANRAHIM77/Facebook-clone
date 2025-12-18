@@ -1,5 +1,5 @@
 import SignupSchemas from "../schemas/SignupSchemas";
-import Home from "../pages/Home";
+
 
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";

@@ -1,4 +1,4 @@
-import Home from "../pages/Home";
+import Home from "../home/Home";
 import FindFriends from "../pages/FindFriends";
 import MarketPlace from "../pages/MarketPlace";
 import Reels from "../pages/Reels";

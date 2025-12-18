@@ -1,11 +1,11 @@
-import { useContext } from "react"
-import { AppContext } from "../context/AppProvider"
+// import { useContext } from "react"
+// import { AppContext } from "../context/AppProvider"
 
-const Home=()=>{
-    const values = useContext(AppContext)
-    console.log(values,"home")
-    return(
-<div>home</div>
-    )
-}
-export default Home
+// const Home=()=>{
+//     const values = useContext(AppContext)
+//     console.log(values,"home")
+//     return(
+// <div>home</div>
+//     )
+// }
+// export default Home
