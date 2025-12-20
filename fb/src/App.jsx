@@ -7,10 +7,7 @@ import PrivateRoute from "./routes/PrivateRoute";
 import Layout from "./components/Layout";
 import { HomeRoutes } from "./routes/HomeRoutes";
 
-
-
 const App=()=>{
-
 
 return(
 <>
