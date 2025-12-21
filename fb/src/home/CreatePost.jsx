@@ -1,5 +1,7 @@
-import { useState } from "react";
+import { useState,useRef } from "react";
 import { Image, Users, Smile } from "lucide-react";
+
+
 
 import {
   Modal,
@@ -43,6 +45,16 @@ const CreatePost = () => {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  const fileInputRef = useRef(null);
+const [selectedFile, setSelectedFile] = useState(null);
+
+const handleFileChange = (e) => {
+  const file = e.target.files[0];
+  if (file) {
+    setSelectedFile(file);
+  }
+};
+
 
   return (
     <>
@@ -94,6 +106,25 @@ const CreatePost = () => {
               sx={{ mb: 2 }}
             />
 
+            {selectedFile && (
+  <Box mb={2}>
+    {selectedFile.type.startsWith("image") ? (
+      <img
+        src={URL.createObjectURL(selectedFile)}
+        alt="preview"
+        className="w-full rounded-lg"
+      />
+    ) : (
+      <video
+        src={URL.createObjectURL(selectedFile)}
+        controls
+        className="w-full rounded-lg"
+      />
+    )}
+  </Box>
+)}
+
+
             {/* Add to post */}
             <Box
               display="flex"
@@ -106,7 +137,8 @@ const CreatePost = () => {
             >
               <Typography fontWeight={600}>Add to your post</Typography>
               <Box>
-                <IconButton color="success"><ImageIcon /></IconButton>
+                <IconButton color="success" onClick={() => fileInputRef.current.click()}><ImageIcon /></IconButton>
+                <input type="file" ref={fileInputRef} hidden accept="image/*,video/*" onChange={handleFileChange}/>
                 <IconButton color="primary"><GroupIcon /></IconButton>
                 <IconButton color="warning"><EmojiEmotionsIcon /></IconButton>
                 <IconButton color="secondary"><GifIcon /></IconButton>
